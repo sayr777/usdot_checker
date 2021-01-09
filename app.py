@@ -4,11 +4,6 @@ from flask_restful import Api, Resource
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-options = Options()
-options.add_argument('--no-sandbox')
-options.add_argument('--headless')
-options.add_argument('--disable-dev-shm-usage')
-options.add_argument("--remote-debugging-port=9222")
 
 app = Flask(__name__)
 api = Api(app)
@@ -21,7 +16,7 @@ def check_usdot(usdot:int):
     options.add_argument('--headless')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument("--remote-debugging-port=9222")
-    browser = webdriver.Chrome('./chromedriver_ubuntu', chrome_options=options)
+    browser = webdriver.Chrome('./chromedriver', chrome_options=options)
     browser.minimize_window()
     try:
         browser.get('https://safer.fmcsa.dot.gov/CompanySnapshot.aspx')
