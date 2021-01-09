@@ -1,4 +1,7 @@
 
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb()
+vdisplay.start()
 from flask import Flask
 from flask_restful import Api, Resource
 from selenium import webdriver
