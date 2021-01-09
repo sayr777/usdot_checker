@@ -2,4 +2,5 @@ flask
 flask-restful
 selenium
 gunicorn
+pip install pipenv
 
