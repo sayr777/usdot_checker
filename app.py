@@ -15,7 +15,7 @@ def check_usdot(usdot:int):
     # options.add_argument('--headless')
     # options.add_argument('--disable-dev-shm-usage')
     # options.add_argument("--remote-debugging-port=9222")
-    browser = webdriver.Chrome('./chromedriver')
+    browser = webdriver.Chrome('./chromedriver_ubuntu')
     browser.minimize_window()
     try:
         browser.get('https://safer.fmcsa.dot.gov/CompanySnapshot.aspx')
