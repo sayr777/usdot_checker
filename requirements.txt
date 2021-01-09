@@ -1,5 +1,4 @@
 flask
 flask-restful
-xvfbwrapper
 selenium
 gunicorn
