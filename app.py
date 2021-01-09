@@ -2,21 +2,21 @@
 from flask import Flask
 from flask_restful import Api, Resource
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-
 
 app = Flask(__name__)
 api = Api(app)
 
 def check_usdot(usdot:int):
     # Check USDOT in site https://safer.fmcsa.dot.gov/
-    options = Options()
-    options.add_argument('--no-sandbox')
-    options.add_argument('--headless')
-    options.add_argument('--disable-dev-shm-usage')
-    # options.add_argument("--remote-debugging-port=9222")
-    browser = webdriver.Chrome('./chromedriver', options=options)
-    browser.minimize_window()
+
+    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.binary_location = GOOGLE_CHROME_PATH
+    browser = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+
     try:
         browser.get('https://safer.fmcsa.dot.gov/CompanySnapshot.aspx')
     except Exception as error_string:
