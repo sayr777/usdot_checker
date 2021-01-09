@@ -75,4 +75,4 @@ class Requests(Resource):
 api.add_resource(Requests, "/check_usdot/<int:usdot>")
 
 if __name__ == '__main__':
-    app.run(debug=False,port=9555)
+    app.run(debug=True)
