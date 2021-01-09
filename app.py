@@ -3,9 +3,6 @@ from flask import Flask
 from flask_restful import Api, Resource
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import os
-
-os.run('apt-get update && apt-get install libgconf-2-4')
 
 
 app = Flask(__name__)
@@ -18,7 +15,7 @@ def check_usdot(usdot:int):
     options.add_argument('--headless')
     options.add_argument('--disable-dev-shm-usage')
     # options.add_argument("--remote-debugging-port=9222")
-    browser = webdriver.Chrome('./chromedriver_ubuntu', options=options)
+    browser = webdriver.Chrome('./chromedriver', options=options)
     browser.minimize_window()
     try:
         browser.get('https://safer.fmcsa.dot.gov/CompanySnapshot.aspx')
