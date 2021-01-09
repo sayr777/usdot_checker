@@ -10,12 +10,12 @@ api = Api(app)
 
 def check_usdot(usdot:int):
     # Check USDOT in site https://safer.fmcsa.dot.gov/
-    # options = Options()
-    # options.add_argument('--no-sandbox')
-    # options.add_argument('--headless')
-    # options.add_argument('--disable-dev-shm-usage')
+    options = Options()
+    options.add_argument('--no-sandbox')
+    options.add_argument('--headless')
+    options.add_argument('--disable-dev-shm-usage')
     # options.add_argument("--remote-debugging-port=9222")
-    browser = webdriver.Chrome('./chromedriver_ubuntu')
+    browser = webdriver.Chrome('./chromedriver', options=options)
     browser.minimize_window()
     try:
         browser.get('https://safer.fmcsa.dot.gov/CompanySnapshot.aspx')
@@ -77,4 +77,4 @@ class Requests(Resource):
 api.add_resource(Requests, "/check_usdot/<int:usdot>")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False,port=9555)
