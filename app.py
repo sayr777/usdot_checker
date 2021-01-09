@@ -8,6 +8,7 @@ api = Api(app)
 
 def check_usdot(usdot:int):
     # Check USDOT in site https://safer.fmcsa.dot.gov/
+
     browser = webdriver.Chrome('./chromedriver')
     browser.minimize_window()
     try:
