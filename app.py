@@ -8,12 +8,12 @@ api = Api(app)
 
 def check_usdot(usdot:int):
     # Check USDOT in site https://safer.fmcsa.dot.gov/
-
-    chrome_options = webdriver.ChromeOptions()
+    chrome_options = Options()
+    chrome_options.binary_location = GOOGLE_CHROME_BIN
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
-    # chrome_options.binary_location = GOOGLE_CHROME_BIN
-    browser = webdriver.Chrome(options=chrome_options)
+    browser = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+
 
     try:
         browser.get('https://safer.fmcsa.dot.gov/CompanySnapshot.aspx')
