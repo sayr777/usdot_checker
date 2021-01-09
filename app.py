@@ -12,7 +12,7 @@ def check_usdot(usdot:int):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
-    chrome_options.binary_location = GOOGLE_CHROME_BIN
+    # chrome_options.binary_location = GOOGLE_CHROME_BIN
     browser = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=chrome_options)
 
     try:
