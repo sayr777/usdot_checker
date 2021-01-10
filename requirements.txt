@@ -1,6 +1,6 @@
 flask
 flask-restful
 selenium
+webdriver_manager
 gunicorn
-pip install pipenv
 

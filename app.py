@@ -2,17 +2,22 @@
 from flask import Flask
 from flask_restful import Api, Resource
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
+
+
+
 
 app = Flask(__name__)
 api = Api(app)
 
 def check_usdot(usdot:int):
     # Check USDOT in site https://safer.fmcsa.dot.gov/
-    chrome_options = Options()
-    chrome_options.binary_location = GOOGLE_CHROME_BIN
+    chrome_options = webdriver.ChromeOptions()
+
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
-    browser = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+    browser = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=chrome_options)
 
 
     try:
