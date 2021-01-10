@@ -13,10 +13,10 @@ def check_usdot(usdot:int):
 
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
+    # Close windows
     chrome_options.add_argument('--headless')
     chrome_options.headless = True
     browser = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=chrome_options)
-
 
     try:
         browser.get('https://safer.fmcsa.dot.gov/CompanySnapshot.aspx')
