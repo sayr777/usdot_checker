@@ -4,10 +4,6 @@ from flask_restful import Api, Resource
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
-
-
-
-
 app = Flask(__name__)
 api = Api(app)
 
@@ -17,6 +13,8 @@ def check_usdot(usdot:int):
 
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--headless')
+    chrome_options.headless = True
     browser = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=chrome_options)
 
 
