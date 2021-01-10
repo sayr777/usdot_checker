@@ -30,7 +30,11 @@ def check_usdot(usdot:int):
     search_buttom = '/html/body/form/p/table/tbody/tr[4]/td/input'
     browser.find_element_by_xpath(search_buttom).click()
     # Get parameters
-    entity_type = browser.find_element_by_xpath('/html/body/p/table/tbody/tr[2]/td/table/tbody/tr[2]/td/center[1]/table/tbody/tr[2]/td').text
+    try:
+        entity_type = browser.find_element_by_xpath('/html/body/p/table/tbody/tr[2]/td/table/tbody/tr[2]/td/center[1]/table/tbody/tr[2]/td').text
+    except Exception as error_string:
+        print('not a valid usdot')
+        return None
     operating_status = browser.find_element_by_xpath('/html/body/p/table/tbody/tr[2]/td/table/tbody/tr[2]/td/center[1]/table/tbody/tr[3]/td[1]').text
     out_of_service_date = browser.find_element_by_xpath('/html/body/p/table/tbody/tr[2]/td/table/tbody/tr[2]/td/center[1]/table/tbody/tr[3]/td[2]').text
     legal_name = browser.find_element_by_xpath('/html/body/p/table/tbody/tr[2]/td/table/tbody/tr[2]/td/center[1]/table/tbody/tr[4]/td').text
