@@ -1,3 +1,11 @@
+git init
+git add --all
+git commit -a -m 'first commit'
+git remote add origin https://github.com/sayr777/usdot_checker
+git pull --rebase origin master
+git push origin master
+
+
 
 What is a USDOT Number?
 Companies that operate commercial vehicles transporting passengers or hauling cargo in interstate commerce must be registered with the FMCSA and must have a USDOT Number. 
